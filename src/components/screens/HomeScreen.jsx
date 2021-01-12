@@ -1,22 +1,27 @@
-import * as React from 'react';
-import { Alert, Text, View } from 'react-native';
-import { globalStyles } from '../../styles';
-import { Button } from '../ui/atoms/buttons/Button';
+import React from 'react';
+import { Text, View } from 'react-native';
+import { containerStyles, globalStyles, textStyles } from '../../styles';
+import { Button } from '../ui/molecules/buttons/Button';
+import { Timer } from '../ui/molecules/Timer';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import TrainingsGrid from '../ui/organisms/TrainingsGrid';
 
-export const HomeScreen = ({navigation}) => {
+
+
+export const HomeScreen = ({ navigation }) => {
     const handlePress = () => {
-        navigation.navigate('About')
-    }
-    
-    return (
-        <View style={[globalStyles.containerCenterElements, globalStyles.containerSecondary]}>
-            <Text style={[globalStyles.text]}>Home Screen</Text>
-            <Button buttonText='Acerca de la app' handlePress={handlePress} />
+        navigation.navigate('About');
+    };
+    const expiryTimestamp = new Date();
+    expiryTimestamp.setSeconds(expiryTimestamp.getSeconds() + 600);
 
+    
+
+    return (
+        <View style={containerStyles.mainContainer}>
+            <TrainingsGrid />
+            
         </View>
     );
 };
-
-
-
-

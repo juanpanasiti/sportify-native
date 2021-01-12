@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Alert, Text } from 'react-native';
+import React from 'react';
+import { Text } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { buttonStyles } from '../../../../styles';
-import { DefaultOnPressAlert } from '../alerts/DefaultOnPressAlert';
+import { DefaultOnPressAlert } from '../../atoms/alerts/DefaultOnPressAlert';
 
 
 

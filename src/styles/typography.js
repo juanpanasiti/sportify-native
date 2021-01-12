@@ -28,6 +28,6 @@ export const FONT_REGULAR = {
 };
 
 export const FONT_BOLD = {
-  fontFamily: FONT_FAMILY_BOLD,
+  // fontFamily: FONT_FAMILY_BOLD,
   fontWeight: FONT_WEIGHT_BOLD,
 };
