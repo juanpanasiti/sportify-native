@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { textStyles } from '../../../styles';
-import IconButton from '../molecules/buttons/IconButton';
+// import IconButton from '../atoms/buttons/IconButton';
 import { faBiking, faRunning, } from "@fortawesome/free-solid-svg-icons";
 import { useNavigation } from '@react-navigation/native';
+import IconButton from '../atoms/buttons/IconButton';
 
 const TrainingsGrid = () => {
     const navigation = useNavigation()

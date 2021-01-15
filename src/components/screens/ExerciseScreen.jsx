@@ -7,7 +7,6 @@ const ExerciseScreen = ({ route, navigation }) => {
     const { type } = route.params;
     return (
         <View style={{ display: 'flex', flexDirection: 'column' }}>
-            <Text> {type} </Text>
             {type === 'bici' && <BikeTraining />}
         </View>
     );
