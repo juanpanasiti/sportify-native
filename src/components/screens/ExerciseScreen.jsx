@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { View, Text } from 'react-native';
-import BikeTraining from '../ui/organisms/trainings/BikeTraining';
+import { View } from 'react-native';
+import BikeTraining from '../templates/training/BikeTraining';
 
-const ExerciseScreen = ({ route, navigation }) => {
+const ExerciseScreen = ({ route }) => {
     const { type } = route.params;
     return (
         <View style={{ display: 'flex', flexDirection: 'column' }}>

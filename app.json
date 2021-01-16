@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "sportify-native",
-    "slug": "sportify-native",
-    "version": "1.0.0",
+    "name": "Sportify",
+    "slug": "sportify-beta",
+    "version": "0.1.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.juanpanasiti.sportifybeta"
     },
     "web": {
       "favicon": "./assets/favicon.png"

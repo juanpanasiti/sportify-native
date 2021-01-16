@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react';
-
-import { View, Text, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, ScrollView } from 'react-native';
+import PropTypes from 'prop-types';
 import SetCounter from '../../molecules/SetCounter';
 import SetTimer from '../../molecules/timer/SetTimer';
-const initialState = {
-    estado: 'sin configurar',
-    tpoCalentamiento: { min: 5, seg: 0 },
-    tpoAblandamiento: { min: 5, seg: 0 },
-    tpoIntervaloInt: { min: 0, seg: 30 },
-    tpoIntervaloRel: { min: 1, seg: 30 },
-    cantIntervalos: 1,
-    tpoTotal: { min: 0, seg: 0 },
-};
-const BikeTraining = () => {
-    const [entrenamiento, setEntrenamiento] = useState(initialState);
+
+const ConfigTraining = (props) => {
+    const { entrenamiento, setEntrenamiento } = props;
+
     const { tpoCalentamiento, tpoAblandamiento, tpoIntervaloInt, tpoIntervaloRel, cantIntervalos, tpoTotal } = entrenamiento;
 
     const setTpoCal = (newState) => {
@@ -55,10 +48,9 @@ const BikeTraining = () => {
     const setCantIntervalos = (newState) => {
         setEntrenamiento({
             ...entrenamiento,
-            cantIntervalos: newState
+            cantIntervalos: newState,
         });
     };
-
 
     useEffect(() => {
         const totalEnSegs =
@@ -80,28 +72,30 @@ const BikeTraining = () => {
         });
     }, [tpoCalentamiento, tpoAblandamiento, tpoIntervaloInt, tpoIntervaloRel, cantIntervalos]);
     return (
-        <View style={{ display: 'flex', flexDirection: 'column' }}>
-            {/* CONFIGURACION */}
-            <ScrollView style={{ marginBottom: 25 }}>
-                <Text style={{ fontSize: 18 }}>Tiempo de Calentamiento</Text>
-                <SetTimer time={tpoCalentamiento} setTime={setTpoCal} />
+        <ScrollView style={{ marginBottom: 25 }}>
+            <Text style={{ fontSize: 18 }}>Tiempo de Calentamiento</Text>
+            <SetTimer time={tpoCalentamiento} setTime={setTpoCal} />
 
-                <Text style={{ fontSize: 18 }}>Tiempo de Ablandamiento</Text>
-                <SetTimer time={tpoAblandamiento} setTime={setTpoAbl} />
+            <Text style={{ fontSize: 18 }}>Tiempo de Ablandamiento</Text>
+            <SetTimer time={tpoAblandamiento} setTime={setTpoAbl} />
 
-                <Text style={{ fontSize: 18 }}>Intervalo Intensivo</Text>
-                <SetTimer time={tpoIntervaloInt} setTime={setInterInt} />
+            <Text style={{ fontSize: 18 }}>Intervalo Intensivo</Text>
+            <SetTimer time={tpoIntervaloInt} setTime={setInterInt} />
 
-                <Text style={{ fontSize: 18 }}>Intervalo Relajado</Text>
-                <SetTimer time={tpoIntervaloRel} setTime={setInterRel} />
+            <Text style={{ fontSize: 18 }}>Intervalo Relajado</Text>
+            <SetTimer time={tpoIntervaloRel} setTime={setInterRel} />
 
-                <Text style={{ fontSize: 18 }}>Sesiones</Text>
-                <SetCounter counter={cantIntervalos} setCounter={setCantIntervalos} min={1} />
-            </ScrollView>
-            <Text style={{fontSize: 30, color: 'green', textAlign:'center', fontWeight:'bold'}}> {`Tiempo Total: ${tpoTotal.min}:${tpoTotal.seg}`} </Text>
-            {/* EJECUCION */}
-        </View>
+            <Text style={{ fontSize: 18 }}>Sesiones</Text>
+            <SetCounter counter={cantIntervalos} setCounter={setCantIntervalos} min={1} />
+        </ScrollView>
     );
 };
 
-export default BikeTraining;
+ConfigTraining.propTypes = {
+    entrenamiento: PropTypes.object.isRequired,
+    setEntrenamiento: PropTypes.func.isRequired,
+};
+
+export default ConfigTraining;
+
+const styles = StyleSheet.create({});
