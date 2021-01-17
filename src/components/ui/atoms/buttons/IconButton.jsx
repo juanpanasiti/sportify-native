@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import { buttonStyles } from '../../../../styles';
 import { DefaultOnPressAlert } from '../../atoms/alerts/DefaultOnPressAlert';
 
-const IconButton = ({ icon, text, iconSize, fontSize, handlePress }) => {
+const IconButton = ({ icon, text, iconSize, fontSize, handlePress, disabled }) => {
     return (
-        <TouchableOpacity style={buttonStyles.iconButton} onPress={handlePress}>
+        <TouchableOpacity style={buttonStyles.iconButton} onPress={handlePress} disabled={disabled}>
             <FontAwesomeIcon icon={icon} size={iconSize} style={[buttonStyles.iconButtonIcon]} />
             <Text style={[buttonStyles.iconButtonText, { fontSize: fontSize }]}>{text}</Text>
         </TouchableOpacity>

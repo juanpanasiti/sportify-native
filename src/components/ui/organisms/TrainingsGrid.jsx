@@ -16,8 +16,8 @@ const TrainingsGrid = () => {
             <Text style={textStyles.subtitle1}>Tipos de Entrenamiento</Text>
             <View style={{display:'flex', flexDirection:'row', justifyContent:'space-around'}}>
                 <IconButton icon={faBiking} text='Bicicleta' iconSize={70} fontSize={20} handlePress={() => handlePressExercise('bici')} />
-                <IconButton icon={faRunning} text='Correr/Trotar' iconSize={70} fontSize={20} handlePress={() => handlePressExercise('correr')} />
-                <IconButton text='Libre' iconSize={70} fontSize={20} handlePress={() => handlePressExercise('libre')} />
+                <IconButton disabled icon={faRunning} text='Correr/Trotar' iconSize={70} fontSize={20} handlePress={() => handlePressExercise('correr')} />
+                <IconButton disabled text='Libre' iconSize={70} fontSize={20} handlePress={() => handlePressExercise('libre')} />
             </View>
         </View>
     );
