@@ -21,7 +21,10 @@ export const containerStyles = StyleSheet.create({
         backgroundColor: Colors.SECONDARY,
         flex: 1,
     },
-    container: {},
+    container: {
+        display:'flex',
+        flexDirection:'column',
+    },
     iconButtonContainer: {
         flex: 1,
         backgroundColor: '#FFF',

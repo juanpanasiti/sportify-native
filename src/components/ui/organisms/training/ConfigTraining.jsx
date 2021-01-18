@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { StyleSheet, Text, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 import SetCounter from '../../molecules/SetCounter';
@@ -51,7 +51,7 @@ const ConfigTraining = (props) => {
             cantIntervalos: newState,
         });
     };
-
+    const isMounted = useRef(true);
     useEffect(() => {
         const totalEnSegs =
             tpoCalentamiento.min * 60 +
@@ -63,13 +63,18 @@ const ConfigTraining = (props) => {
         const totalMin = Math.floor(totalEnSegs / 60);
         const totalSeg = totalEnSegs - totalMin * 60;
 
-        setEntrenamiento({
-            ...entrenamiento,
-            tpoTotal: {
-                min: totalMin,
-                seg: totalSeg,
-            },
-        });
+        if (isMounted.current) {
+            setEntrenamiento({
+                ...entrenamiento,
+                tpoTotal: {
+                    min: totalMin,
+                    seg: totalSeg,
+                },
+            });
+        }
+        return () => {
+            isMounted.current = false
+        }
     }, [tpoCalentamiento, tpoAblandamiento, tpoIntervaloInt, tpoIntervaloRel, cantIntervalos]);
     return (
         <ScrollView style={{ marginBottom: 25 }}>
